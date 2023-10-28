@@ -27,4 +27,16 @@ function showTime(){
 showTime()
 setInterval(showTime, 1000)
 
+try {
+    var loadNotes = localStorage.getItem("notes");
+}
+catch (err){
+    var loadNotes = "Enter your notes here and lcik 'Save'";
+}
+$("#note-area").val(loadNotes);
+
+$("save-btn").click(function(){
+    var currentNotes = $("#note-area").val();
+    localStorage.setItem("notes", currentNotes);
+})
 
